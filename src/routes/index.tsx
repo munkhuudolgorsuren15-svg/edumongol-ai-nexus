@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight, Sparkles, Play, Star, Users, BookOpen, GraduationCap, Clock,
-  Code2, Palette, Languages, Sigma, Briefcase Quote, Check,
+  Code2, Palette, Languages, Sigma, Briefcase, Quote, Check,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Button } from "@/components/ui/button";
