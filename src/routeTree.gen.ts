@@ -13,6 +13,8 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesIdRouteImport } from './routes/courses.$id'
 
@@ -36,6 +38,16 @@ const CoursesRoute = CoursesRouteImport.update({
   path: '/courses',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +61,8 @@ const CoursesIdRoute = CoursesIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
@@ -57,6 +71,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
@@ -66,6 +82,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
@@ -76,16 +94,28 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/contact'
     | '/courses'
     | '/dashboard'
     | '/login'
     | '/register'
     | '/courses/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/courses' | '/dashboard' | '/login' | '/register' | '/courses/$id'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/courses'
+    | '/dashboard'
+    | '/login'
+    | '/register'
+    | '/courses/$id'
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/contact'
     | '/courses'
     | '/dashboard'
     | '/login'
@@ -95,6 +125,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
@@ -131,6 +163,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -161,6 +207,8 @@ const CoursesRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
