@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "EduMongol AI — Цахим сургалтын шинэ үе" },
+      { name: "description", content: "Монголын оюутнуудад зориулсан AI-д суурилсан премиум цахим сургалтын платформ." },
+      { name: "author", content: "EduMongol AI" },
+      { property: "og:title", content: "EduMongol AI" },
+      { property: "og:description", content: "Сурахын шинэ үе — хүссэн газраасаа, хүссэн үедээ." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@EduMongol" },
     ],
     links: [
       {
